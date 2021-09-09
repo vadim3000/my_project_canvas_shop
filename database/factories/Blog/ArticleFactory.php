@@ -27,7 +27,7 @@ class ArticleFactory extends Factory
             'title' => $this->faker->sentence,
             'body'=> $this->faker->paragraph(10),
             'description' => $this->faker->paragraph(),
-            'published_at' => $this->faker->dateTimeBetween(' -30 years', '30 years'),
+            'published_at' => $this->faker->dateTimeBetween( ' =-1 years'),
             'image' => $this->faker->image('storage/app/public'),
             'author_id' => Author::factory(),
             'category_id' => BlogCategory::factory(),

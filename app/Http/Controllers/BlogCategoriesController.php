@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Mail;
-use Mail
 
 use App\Models\Blog\BlogCategory;
 use Illuminate\Http\Request;

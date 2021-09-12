@@ -1,4 +1,9 @@
 
+@section('pageTitle')
+    Blog article long title
+@endsection
+
+
 <ul>
     @foreach($articles as $article)
         <li>

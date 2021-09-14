@@ -4,16 +4,17 @@ namespace App\Http\Controllers;
 
 //use App\Http\Request\ContactUsRequest;
 use App\Http\Requests\ContactUsRequest;
+use Illuminate\Contracts\Mail\Mailer;
 use Illuminate\Http\Request;
 use Illuminate\Mail\Message;
-use Mail;
+//use Mail;
 //use Rule;
 
 
 class ContactUsController extends Controller
 {
 
-    public function storeContactInfo( ContactUsRequest $request)
+    public function storeContactInfo( ContactUsRequest $request, Mailer  $mailer)
     {
         $data = $request->validated();
         $data['messageText'] = $data['message'];

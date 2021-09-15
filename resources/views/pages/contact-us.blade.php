@@ -1,4 +1,4 @@
-@extends('layouts.front_layout')
+@extends('layout')
 @section('hometitle')
     Contacts
 @endsection

@@ -1,8 +1,9 @@
 <?php
-namespace App\Http\Requests;
+namespace App\Http\Request;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+
 class ContactUsRequest extends FormRequest
 {
     /**

@@ -14,12 +14,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->middleware('response.log');
+//Route::get('/', function () {
+//    return view('welcome');
+//})->middleware('response.log');
+
+
 
 Route::get('/foo', function () {
     return ('Hello world');
+});
+
+Route::get('/', function (){
+    return view(('pages/homepage'));
+});
+
+Route::get('/blog', function (){
+    return view(('pages/blog-list'));
+});
+
+Route::get('/blog/article', function (){
+    return view(('pages/blog-article'));
 });
 
 

@@ -1,0 +1,23 @@
+body {
+    /*background-color: #ffcc04;*/
+    background-image: url("../images/canvases_img.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.content-body{
+    margin: 40px 0 80px 0;
+}
+
+footer{
+    background-color: #2d3748;
+    padding: 50px;
+    color: #fff;
+    min-height: 350px;
+}
+
+.footer-menu a {
+    color: #fff;
+}
+

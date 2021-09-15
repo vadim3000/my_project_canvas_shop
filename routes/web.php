@@ -38,3 +38,11 @@ Route::get('/blog/tag/create', [\App\Http\Controllers\TagController::class, 'cre
 
 Route::get('/pages/blog_list', [\App\Http\Controllers\BlogController::class, 'index']);
 Route::get('/pages/blog_article', [\App\Http\Controllers\BlogController::class, 'show']);
+
+Route::get('/pages/blog_article', [\App\Http\Controllers\BlogController::class, 'show']);
+
+//Route::get('/contacts', [\App\Http\Controllers\ContactUsController::class, 'contactUs'])->name('contactUs.show');
+//Route::get('/store-contact-info', [\App\Http\Controllers\ContactUsController::class, 'storeContactInfo'])->name('contactUs.store');
+
+Route::get('/contacts',[ContactUsController::class, 'contactUs'])->name('contactUs.show');
+Route::post('/store-contact-info',[ContactUsController::class, 'storeContactInfo'])->name('contactUs.store');

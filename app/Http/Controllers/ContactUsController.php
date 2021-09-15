@@ -7,27 +7,22 @@ use App\Http\Requests\ContactUsRequest;
 use Illuminate\Contracts\Mail\Mailer;
 use Illuminate\Http\Request;
 use Illuminate\Mail\Message;
-//use Mail;
-//use Rule;
+
 
 
 class ContactUsController extends Controller
 {
 
+    public function contactUs(Request $request){
+        return view('pages.contact-us');
+    }
+
+
     public function storeContactInfo( ContactUsRequest $request, Mailer  $mailer)
     {
         $data = $request->validated();
-        $data['messageText'] = $data['message'];
 
-        Mail::send(
-            'emails/contactUs',
-            $data,
-            function (Message $message) use ($data) {
-                $message->to('test@test.com');
-                $message->subject('Contact Us request from'. $data['name'] . ' ' . $data['email']);
-                $message->replyTo($data['email']);
-            }
-        );
+        $mailer->send($data);
 
         return redirect(route('contact.show'))
             ->with('success', 'Mesajul a fost trimis cu sucess')

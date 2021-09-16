@@ -6,6 +6,8 @@ use Illuminate\Contracts\Mail\Mailer;
 use Illuminate\Mail\Message;
 
 
+
+
 class ContactUsMailer{
 
     private Mailer $infrastructureMailer;

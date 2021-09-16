@@ -12,7 +12,8 @@ use Illuminate\Mail\Message;
 class ContactUsController extends Controller
 {
 
-    public function contactUs(Request $request){
+    public function contactUs(Request $request)
+    {
         return view('pages.contact-us');
     }
 

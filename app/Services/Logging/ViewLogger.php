@@ -28,7 +28,7 @@ class ViewLogger
             sprintf(
                 '%s viewed $s',
                 $name,
-                (string)$loggable,
+                $loggable->toString(),
             ),
             $loggable->toArray(),
         );

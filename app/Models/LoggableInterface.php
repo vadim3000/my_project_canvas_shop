@@ -6,7 +6,6 @@ interface LoggableInterface
 {
 
     /**
-     * c
 
     @return array
      */
@@ -16,6 +15,6 @@ interface LoggableInterface
     /**
     @return string
      */
-    public function __toString(): string;
+    public function toString(): string;
 
 }

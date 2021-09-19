@@ -20,6 +20,12 @@ use Illuminate\Support\Facades\Route;
 
 
 
+//Route::get('/', function () {
+//    return view('welcome');
+//})->middleware('response.log');
+
+
+
 Route::get('/foo', function () {
     return ('Hello world');
 });
@@ -42,9 +48,10 @@ Route::group(['prefix' => '/user'], function () {
     Route::post('/info', ['uses' => UserInfoController::class . '@storeInfo']);
     Route::get('/info/stored', ['uses' => UserInfoController::class . '@stored']);});
 
-Route::get('/manufacturer', [\App\Http\Controllers\ManufacturerController::class, 'create'])->name('contactUs.store');
+Route::get('/manufacturer/create', [\App\Http\Controllers\ManufacturerController::class, 'create']);
+Route::get('/manufacturer/{id}/view',[\App\Http\Controllers\ManufacturerController::class, 'view']);
 
-Route::get('/my_project_category/create', [\App\Http\Controllers\MyProjectCategoriesController::class, 'create'])->name('contactUs.store');
+Route::get('/my_project_category/create', [\App\Http\Controllers\MyProjectCategoriesController::class, 'create']);
 
 Route::get('/blog/author/create', [\App\Http\Controllers\AuthorController::class, 'create'])->name('contactUs.store');
 Route::get('/blog/create_category', [\App\Http\Controllers\BlogCategoriesController::class, 'create'])->name('contactUs.store');
@@ -55,6 +62,7 @@ Route::get('/pages/blog_article', [\App\Http\Controllers\BlogController::class, 
 
 Route::get('/pages/blog_article', [\App\Http\Controllers\BlogController::class, 'show']);
 
-Route::get('/contacts', [\App\Http\Controllers\ContactUsController::class, 'contactUs'])->name('contactUs.show');
+Route::get('/contacts', [\App\Http\Controllers\ContactUsController::class, 'contactUs'])->name('contact.show');
 Route::post('/store-contact-info', [\App\Http\Controllers\ContactUsController::class, 'storeContactInfo'])->name('contactUs.store');
+
 

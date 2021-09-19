@@ -3,21 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Http\Request\ContactUsRequest;
-use Illuminate\Contracts\Mail\Mailer;
+use App\Services\Mail\ContactUsMailer;
 use Illuminate\Http\Request;
-use Illuminate\Mail\Message;
 
 
 
 class ContactUsController extends Controller
 {
 
-    public function contactUs(Request $request){
+    public function contactUs(Request $request)
+    {
         return view('pages.contact-us');
     }
 
 
-    public function storeContactInfo( ContactUsRequest $request, Mailer  $mailer)
+    public function storeContactInfo( ContactUsRequest $request, ContactUsMailer $mailer)
     {
         $data = $request->validated();
 

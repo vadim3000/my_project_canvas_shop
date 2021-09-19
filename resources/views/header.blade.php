@@ -8,11 +8,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link active" aria-current="page" href="/">Homepage</a>
+                        <a class="nav-link active" aria-current="page" href="#">Homepage</a>
                         <a class="nav-link" href="#">About Us</a>
                         <a class="nav-link" href="#">Service</a>
                         <a class="nav-link" href="#">Blog</a>
-                        <a class="nav-link" href="#">Contact Us</a>
+                        <a class="nav-link" href="{{ route('contact.show') }}">Contact Us</a>
                     </div>
                 </div>
             </div>

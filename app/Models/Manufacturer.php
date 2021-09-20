@@ -6,7 +6,7 @@ use App\Models\LoggableInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Manufacturer extends Model implements LoggableInterface
+class Manufacturer extends Model
 {
     use HasFactory;
 

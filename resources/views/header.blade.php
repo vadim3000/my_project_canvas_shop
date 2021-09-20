@@ -2,7 +2,7 @@
     <div class="col-lg-12">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" href="/">My Canvas Shop</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -12,7 +12,7 @@
                         <a class="nav-link" href="#">About Us</a>
                         <a class="nav-link" href="#">Service</a>
                         <a class="nav-link" href="#">Blog</a>
-                        <a class="nav-link" href="#">Contact Us</a>
+                        <a class="nav-link" href="{{ route('contact.show') }}">Contact Us</a>
                     </div>
                 </div>
             </div>

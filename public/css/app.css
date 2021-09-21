@@ -11,6 +11,12 @@ body {
     border: 1px solid #1a202c;
 }
 
+div #carousel-block{
+    height: 250px;
+    width: 40%;
+    margin-bottom: 100px;
+}
+
 footer{
     background-color: #2d3748;
     padding: 50px;
@@ -24,4 +30,8 @@ footer{
 
 h3#canvas-title {
     color: #bd1919;
+}
+
+div #products-block{
+    margin-top: 310px;
 }

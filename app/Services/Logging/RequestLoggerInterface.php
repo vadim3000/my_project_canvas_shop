@@ -2,7 +2,10 @@
 
 namespace App\Services\Logging;
 
-class RequestLoggerInterface
-{
+use Illuminate\Http\Request;
 
+
+interface RequestLoggerInterface
+{
+    public function logRequest(Request $request): void;
 }

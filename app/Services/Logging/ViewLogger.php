@@ -11,7 +11,7 @@ class ViewLogger
 
     private LoggerInterface $logger;
 
-    public function __construct(LoggableInterface $logger)
+    public function __construct(LoggerInterface $logger)
     {
         $this->logger= $logger;
     }

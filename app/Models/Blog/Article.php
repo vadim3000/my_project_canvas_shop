@@ -2,10 +2,11 @@
 
 namespace App\Models\Blog;
 
+use App\Models\LoggableInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Article extends Model
+class Article extends Model implements LoggableInterface
 {
     use HasFactory;
 
@@ -41,5 +42,16 @@ class Article extends Model
     }
 
     public $timestamps = false;
+
+
+    public function toArray(): array
+    {
+        return parent::toArray();
+    }
+
+    public function toString(): string
+    {
+        return 'Article with ' . $this->id;
+    }
 
 }

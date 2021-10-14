@@ -12,9 +12,11 @@ body {
 }
 
 div #carousel-block{
-    height: 250px;
-    width: 40%;
-    margin-bottom: 100px;
+    /*height: 250px;*/
+    /*margin-bottom: 100px;*/
+    width:50%;
+    max-height: 200px !important;
+
 }
 
 footer{

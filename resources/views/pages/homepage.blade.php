@@ -6,15 +6,17 @@
 
 @section('content')
 
-    <div class="row">
+
 {{--        headline block--}}
+<div class="row">
         <div class="col-md-12 col-sm-12">
             <h3 id="canvas-title" class="text-center">Create your own customized canvas print. Whether it’s that glorious
                 sunset you saw on your trip, that perfect family picture or the time you spotted a Tiger in the jungle.
             </h3>
-
+        </div>
+</div>
 {{--            Carousel Block--}}
-            <div class="row">
+        <div class="row">
                 <div class="col-md-12">
                     <div id="carousel-block">
                         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -23,7 +25,7 @@
                                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                             </div>
-                            <div class="carousel-inner">
+ SS                           <div class="carousel-inner">
                                 <div class="carousel-item active">
                                     <img src="/images/canvas_img_1.jpg" class="d-block w-100" alt="Canvas Image">
                                 </div>
@@ -45,6 +47,7 @@
                         </div>
                 </div>
 
+
                 </div>
 
             {{--Product block--}}
@@ -63,7 +66,4 @@
                         </p>
                     </div>
                 </div>
-            </div>
-
-    </div>
 @endsection

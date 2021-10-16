@@ -59,3 +59,38 @@ Route::get('/pages/blog_article', [\App\Http\Controllers\BlogController::class, 
 Route::get('/contacts', [\App\Http\Controllers\ContactUsController::class, 'contactUs'])->name('contact.show');
 Route::post('/store-contact-info', [\App\Http\Controllers\ContactUsController::class, 'storeContactInfo'])->name('contactUs.store');
 
+Route::prefix('api')->group(function () {
+    Route::prefix('pizzas')->group(function () {
+        Route::post('/', function () {
+            // return view('pages/homepage');
+            echo 'bbbbbbbbbbbbbbb';
+        });
+        Route::get('/{id}', function () {
+            echo 'I need pizza id here....';
+        });
+        Route::get('/', function () {
+            echo '[
+                {
+                    "id": 0,
+                    "username": "string",
+                    "firstName": "string",
+                    "lastName": "string",
+                    "email": "string",
+                    "password": "string",
+                    "phone": "string",
+                    "userStatus": 0
+                  },
+                  {
+                    "id": 12333,
+                    "username": "string",
+                    "firstName": "string",
+                    "lastName": "string",
+                    "email": "string",
+                    "password": "string",
+                    "phone": "string",
+                    "userStatus": 0
+                  },
+                ]';
+        });
+    });
+});

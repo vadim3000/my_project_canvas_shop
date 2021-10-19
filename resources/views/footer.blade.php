@@ -11,11 +11,11 @@
                         </div>
                         <div class="col-lg-4">
                             <nav class="footer-menu">
-                                <a class="nav-link active" href="#">Home</a>
+                                <a class="nav-link active" href="/">Home</a>
                                 <a class="nav-link active" href="#">About Us</a>
                                 <a class="nav-link active" href="#">Service</a>
                                 <a class="nav-link active" href="#">Blog</a>
-                                <a class="nav-link active" href="#">Contacs</a>
+                                <a class="nav-link active" href="{{ route('contact.show') }}">Contact Us</a>
                             </nav>
                         </div>
                         <div class="col-lg-4">

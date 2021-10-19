@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\LoggableInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,6 +15,14 @@ class Manufacturer extends Model
      'description' =>  'sdfss',
      'active' => false,
    ];
+
+    protected $fillable = [
+        'name',
+        'description',
+        'active',
+    ];
+
+
 
     // company  - one2many
    public function company(){
@@ -34,8 +43,15 @@ class Manufacturer extends Model
         return $this->hasMany(Sector::class);
     }
 
+    public function toArray(): array
+    {
+        return parent::toArray();
+    }
 
-
+    public function toString(): string
+    {
+        return 'Article with id' . $this->id;
+    }
 
 
 

@@ -42,9 +42,10 @@ Route::group(['prefix' => '/user'], function () {
     Route::post('/info', ['uses' => UserInfoController::class . '@storeInfo']);
     Route::get('/info/stored', ['uses' => UserInfoController::class . '@stored']);});
 
-Route::get('/manufacturer', [\App\Http\Controllers\ManufacturerController::class, 'create'])->name('contactUs.store');
+Route::get('/manufacturer/create', [\App\Http\Controllers\ManufacturerController::class, 'create']);
+Route::get('/manufacturer/{id}/view',[\App\Http\Controllers\ManufacturerController::class, 'view']);
 
-Route::get('/my_project_category/create', [\App\Http\Controllers\MyProjectCategoriesController::class, 'create'])->name('contactUs.store');
+Route::get('/my_project_category/create', [\App\Http\Controllers\MyProjectCategoriesController::class, 'create']);
 
 Route::get('/blog/author/create', [\App\Http\Controllers\AuthorController::class, 'create'])->name('contactUs.store');
 Route::get('/blog/create_category', [\App\Http\Controllers\BlogCategoriesController::class, 'create'])->name('contactUs.store');
@@ -52,3 +53,9 @@ Route::get('/blog/tag/create', [\App\Http\Controllers\TagController::class, 'cre
 
 Route::get('/pages/blog_list', [\App\Http\Controllers\BlogController::class, 'index']);
 Route::get('/pages/blog_article', [\App\Http\Controllers\BlogController::class, 'show']);
+
+Route::get('/pages/blog_article', [\App\Http\Controllers\BlogController::class, 'show']);
+
+Route::get('/contacts', [\App\Http\Controllers\ContactUsController::class, 'contactUs'])->name('contact.show');
+Route::post('/store-contact-info', [\App\Http\Controllers\ContactUsController::class, 'storeContactInfo'])->name('contactUs.store');
+

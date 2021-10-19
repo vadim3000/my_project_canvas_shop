@@ -3,33 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Models\Manufacturer;
+use App\Services\Logging\ViewLogger;
 use Illuminate\Http\Request;
 
 class ManufacturerController extends Controller
 {
-    //
 
     public function create()
     {
-//        $manufacturer = new Manufacturer();
-//        $manufacturer->name = 'Test';
-//        $manufacturer->description = 'Test description';
-//        $manufacturer->active = true;
-//        $manufacturer->save();
+        $manufacturer = Manufacturer::create(request()->all());
 
-        $manufacturer = Manufacturer::create([
-            'name' => 'Test create',
-            'description' => 'Test create description',
-            'active' => false,
-        ]);
+        return redirect('manufacturer/' . $manufacturer->id . '/view');
+    }
 
-        $manufacturer = Manufacturer::create([]);
+    public function view(int $id,  ViewLogger $viewLogger)
+    {
+        $manufacturer =  Manufacturer::findOrfail($id);
+        $viewLogger->logView($manufacturer);
 
         dd($manufacturer->toArray());
-
-
-
     }
+
+
+
 
 
 

@@ -1,5 +1,4 @@
 body {
-    /*background-color: #ffcc04;*/
     background-image: url("../images/canvases_img.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -7,7 +6,17 @@ body {
 }
 
 .content-body{
-    margin: 40px 0 40px 0;
+    margin: 40px 0 80px 0;
+    /*min-height: 450px;*/
+    border: 1px solid #1a202c;
+}
+
+div #carousel-block{
+    /*height: 250px;*/
+    /*margin-bottom: 100px;*/
+    width:50%;
+    max-height: 200px !important;
+
 }
 
 footer{
@@ -21,3 +30,10 @@ footer{
     color: #fff;
 }
 
+h3#canvas-title {
+    color: #bd1919;
+}
+
+div #products-block{
+    margin-top: 310px;
+}

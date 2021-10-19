@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Mail;
 
-use App\Models\BlogCategory;
+use App\Models\Blog\BlogCategory;
 use Illuminate\Http\Request;
 
 class BlogCategoriesController extends Controller

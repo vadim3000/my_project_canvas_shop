@@ -60,7 +60,7 @@ Route::get('/contacts', [\App\Http\Controllers\ContactUsController::class, 'cont
 Route::post('/store-contact-info', [\App\Http\Controllers\ContactUsController::class, 'storeContactInfo'])->name('contactUs.store');
 
 Route::prefix('api')->group(function () {
-    Route::prefix('pizzas')->group(function () {
+    Route::prefix('canvases')->group(function () {
         Route::post('/', function () {
             // return view('pages/homepage');
             echo 'bbbbbbbbbbbbbbb';

@@ -1,9 +1,7 @@
 openapi: 3.0.1
 info:
-  title: Swagger Petstore
-  description: 'This is a sample server Petstore server.  You can find out more about
-    Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For
-    this sample, you can use the api key `special-key` to test the authorization filters.'
+  title: Vadim "Open Api Specification"
+  description: You did it :)
   termsOfService: http://swagger.io/terms/
   contact:
     email: apiteam@swagger.io
@@ -15,11 +13,16 @@ externalDocs:
   description: Find out more about Swagger
   url: http://swagger.io
 servers:
-  - url: http://localhost:880/api
-#  - url: http://petstore.swagger.io/v2
+  - url: https://localhost:8080/api
+#  - url: https://production.com/api
+#  - url: https://testing.server.com/api
 tags:
-  - name: Canvas Shop
-    description: THe best canvas Shop
+  - name: products
+    description: Everything about your Products
+  - name: users
+    description: Everything about your Users
+  - name: pet
+    description: Everything about your Pets
     externalDocs:
       description: Find out more
       url: http://swagger.io
@@ -31,47 +34,242 @@ tags:
       description: Find out more about our store
       url: http://swagger.io
 paths:
-  /canvases/{petId}/uploadImage:
-    post:
+  /products:
+    get:
       tags:
-        - pet
-      summary: uploads an image
-      operationId: uploadFile
-      parameters:
-        - name: petId
-          in: path
-          description: ID of pet to update
-          required: true
-          schema:
-            type: integer
-            format: int64
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              properties:
-                additionalMetadata:
-                  type: string
-                  description: Additional data to pass to server
-                file:
-                  type: string
-                  description: file to upload
-                  format: binary
+        - products
+      summary: Read the list of all the products
+      description: Returns detailed list of the products
       responses:
         200:
           description: successful operation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ApiResponse'
-      security:
-        - petstore_auth:
-            - write:pets
-            - read:pets
-  /canvases:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+        201:
+          description: Product
+
+
+        400:
+          description: Invalid status value
+          content: { }
+
+  /products/{productId}:
+    get:
+      tags:
+        - products
+      summary: Read the list of all the products
+      description: Returns detailed list of the producgts
+      parameters:
+        - $ref: '#/components/parameters/productId'
+        - $ref: '#/components/parameters/userId'
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DetailedProduct'
+        400:
+          description: Invalid status value
+          content: { }
+    delete:
+      tags:
+        - products
+      summary: Read the list of all the products
+      description: Returns detailed list of the producgs
+      parameters:
+        - $ref: '#/components/parameters/productId'
+      responses:
+        204:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DetailedProduct'
+
+  /categories :
+    get:
+      tags:
+        - categories
+      summary: Read the list of all the categories
+      description: Returns detailed list of the categories
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+        400:
+          description: Invalid status value
+          content: { }
+
+  /categories/{categoriesId}:
+    get:
+      tags:
+        - categories
+      summary: Read the list of all the categories
+      description: Returns detailed list of the categories
+      parameters:
+        - $ref: '#/components/parameters/categoryId'
+        - $ref: '#/components/parameters/userId'
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DetailedCategory'
+        400:
+          description: Invalid status value
+          content: { }
+    delete:
+      tags:
+        - products
+      summary: Read the list of all the products
+      description: Returns detailed list of the producgs
+      parameters:
+        - $ref: '#/components/parameters/categoryId'
+      responses:
+        204:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DetailedCategory'
+
+  /our/goals :
+    get:
+      tags: goals
+      summary: the about us page
+      description: Returns about-us page
+      parameters:
+        - $ref: '#/components/parameters/AboutUs'
+      responses:
+        204:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OurGoals'
+
+  /our/contacs :
+    get:
+      tags: contacts
+      summary: the contacs page
+      description: Returns contacs page
+      parameters:
+        - $ref: '#/components/parameters/ContacsUs'
+      responses:
+        204:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContscsGoals'
+
+  /our/contacs/post:
+    post:
+      tags: contacs
+      summary: the contacs page
+      description: Sending contacs page
+      parameters:
+        - $ref: '#/components/parameters/AboutUs'
+      responses:
+        204:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OurGoals'
+
+
+  /orders:
+    get:
+      tags:
+        - orders
+      summary: Read the list of all the orders
+      description: Returns detailed list of the products
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Orders'
+        400:
+          description: Invalid status value
+          content: { }
+
+  /orders/{ordersId}:
+    get:
+      tags:
+        - orders
+      summary: Read order
+      description: Returns list of the products on cart page
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Orders'
+        400:
+          description: Invalid status value
+          content: { }
+
+  /orders/{orderId}/items/{productId}/quantity:
+    patch:
+      tags:
+        - orders
+      summary: Read order
+      description: modify the quantity of the products in the cart
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Orders'
+        400:
+          description: Invalid status value
+          content: { }
+
+  /orders/{orderId}/shipping/providers:
+    get:
+      tags:
+        - orders
+      summary: shippingcart providers
+      description: Return the list of available delivery companies
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Orders'
+        400:
+          description: Invalid status value
+          content: { }
+
+  /pet:
     put:
       tags:
-        - canvases
+        - pet
       summary: Update an existing pet
       operationId: updatePet
       requestBody:
@@ -594,6 +792,26 @@ paths:
           content: {}
       x-codegen-request-body-name: body
 components:
+  parameters:
+    productId:
+      name: productId
+      in: path
+      description: Id of the product
+      required: true
+      schema:
+        type: integer
+        format: int64
+        example: 8523
+    userId:
+      name: userId
+      in: query
+      description: User id
+      required: true
+      schema:
+        type: integer
+        format: int64
+        example: 8523
+
   schemas:
     ApiResponse:
       type: object
@@ -613,8 +831,58 @@ components:
           format: int64
         name:
           type: string
-      xml:
-        name: Category
+    Product:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          type: integer
+        category:
+          $ref: '#/components/schemas/ProductCategoryString'
+        name:
+          type: string
+          example: Wall Decor Products
+
+    DetailedProduct:
+      required:
+        - id
+        - name
+      type: object
+      properties:
+        id:
+          type: integer
+        category:
+          $ref: '#/components/schemas/ProductCategoryString'
+        categoryExpanded:
+          $ref: '#/components/schemas/ProductCategoryObject'
+        name:
+          type: string
+          example: wall decor products
+        description:
+          type: string
+          example:  canvas product
+        availableSize:
+          type: string
+          description: 'Example of formats - 20*20, 30*30, 40*40, 50*50, 60*40, 80*60'
+          example: XL
+
+    ProductCategoryObject:
+      type: object
+      properties:
+        name:
+          $ref: '#/components/schemas/ProductCategoryString'
+        description:
+          type: string
+          description: Description of Product category name or ID
+          example: Products for men closes
+
+    ProductCategoryString:
+      type: string
+      description: Product category name
+      enum:
+        - Wall Decor Products
+        - Photo Gifts
     Pet:
       required:
         - name
@@ -631,8 +899,6 @@ components:
           example: doggie
         photoUrls:
           type: array
-          xml:
-            wrapped: true
           items:
             type: string
             xml:
@@ -650,8 +916,9 @@ components:
             - available
             - pending
             - sold
-      xml:
-        name: Pet
+
+
+
     Tag:
       type: object
       properties:
